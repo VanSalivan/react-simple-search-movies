@@ -16,20 +16,26 @@ class Main extends React.Component {
   };
 
   componentDidMount() {
-    fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=back`)
+    fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=back`)
       .then((response) => response.json())
       .then((data) =>
         this.setState({
           movies: data.Search,
           loading: false,
         })
-      );
+      )
+      .catch((err) => {
+        console.error(err);
+        this.setState({
+          loading: false,
+        });
+      });
   }
 
   searchMovies = (term, type = 'all') => {
     this.setState({ loading: true });
     fetch(
-      `http://www.omdbapi.com/?apikey=${API_KEY}&s=${term}${
+      `https://www.omdbapi.com/?apikey=${API_KEY}&s=${term}${
         type !== 'all' ? `&type=${type}` : ''
       }`
     )
