@@ -7,6 +7,8 @@ import MovieList from '../../components/MovieList';
 import Spinner from '../../components/Spinner';
 import { Search } from '../../components/Search/Search';
 
+const API_KEY = process.env.REACT_APP_API_KEY;
+
 class Main extends React.Component {
   state = {
     movies: [],
@@ -14,7 +16,7 @@ class Main extends React.Component {
   };
 
   componentDidMount() {
-    fetch('http://www.omdbapi.com/?apikey=74ebb35c&s=matrix')
+    fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=matrix`)
       .then((response) => response.json())
       .then((data) =>
         this.setState({
@@ -27,7 +29,7 @@ class Main extends React.Component {
   searchMovies = (term, type = 'all') => {
     this.setState({ loading: true });
     fetch(
-      `http://www.omdbapi.com/?apikey=74ebb35c&s=${term}${
+      `http://www.omdbapi.com/?apikey=${API_KEY}&s=${term}${
         type !== 'all' ? `&type=${type}` : ''
       }`
     )
