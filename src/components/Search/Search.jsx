@@ -6,7 +6,7 @@ import './Search.css';
 
 class Search extends React.Component {
   state = {
-    search: '',
+    search: 'batman',
     type: 'all',
   };
 
