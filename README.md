@@ -1,4 +1,4 @@
-## React Movies-Project # [demo](https://vansalivan.github.io/React_MOVIES-PROJECT/)
+## React Movies-Project # [demo](https://vansalivan.github.io/React__MOVIES-PROJECT/)
 Тренировочный проект по технологии React
 - классовые компоненты
 
